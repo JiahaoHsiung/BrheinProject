@@ -315,6 +315,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\ConverHelper.cs" />
     <Compile Include="Common\DataSetToList.cs" />
+    <Compile Include="Common\LocalIPService.cs" />
     <Compile Include="Common\MqttClientService.cs" />
     <Compile Include="Common\MySqlHelper\MySqlDBHelper.cs" />
     <Compile Include="Common\MySqlHelper\MySqlDBHelperExtension.cs" />

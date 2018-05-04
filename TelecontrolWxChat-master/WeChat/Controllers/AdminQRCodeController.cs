@@ -1,8 +1,6 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Drawing;
 using WeChat.Common;
-using System.IO;
 using System.Collections.Generic;
 
 namespace WeChat.Controllers
@@ -59,6 +57,16 @@ namespace WeChat.Controllers
             string content = QRCodeHelper.QRCodeDecoderUtil(bitMap);
             return Content(content);
         }
-
+        public ActionResult GetLocalIP()
+        {
+            ///获取本机IP
+            var ip = LocalIPService.GetLocalIP();
+            return Json(new { data = ip }, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult GetLocalIP2()
+        {
+            var ip = LocalIPService.GetIP();
+            return Json(new { data = ip }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

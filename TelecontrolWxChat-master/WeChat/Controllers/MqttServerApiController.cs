@@ -31,12 +31,12 @@ namespace WeChat.Controllers
         /// <returns></returns>
         public JsonResult Client(string Topic = "", string ClientId = "")
         {
-            if (string.IsNullOrEmpty(Topic)||string.IsNullOrEmpty(ClientId))
+            if (string.IsNullOrEmpty(Topic) || string.IsNullOrEmpty(ClientId))
                 return Json(new { status = StatusCode.FAIL, message = "订阅失败" }, JsonRequestBehavior.AllowGet);
-            var res = new MqttClientService(Topic,ClientId);
+            var res = new MqttClientService(Topic, ClientId);
             bool session = res.SubscribeClient.CleanSession;
             bool Isconnected = res.SubscribeClient.IsConnected;
-            return Json(new { status = Isconnected ? StatusCode.SUCCESS : StatusCode.FAIL, message = Isconnected ? "订阅成功" : "订阅失败"}, JsonRequestBehavior.AllowGet);
+            return Json(new { status = Isconnected ? StatusCode.SUCCESS : StatusCode.FAIL, message = Isconnected ? "订阅成功" : "订阅失败" }, JsonRequestBehavior.AllowGet);
         }
         /// <summary>
         /// mqtt发布消息；
@@ -48,13 +48,13 @@ namespace WeChat.Controllers
         /// <returns></returns>
         public JsonResult Publish(string Topic = "", string message = "", string ClientId = "")
         {
-            if (string.IsNullOrEmpty(Topic) || string.IsNullOrEmpty(message)||string.IsNullOrEmpty(ClientId))
+            if (string.IsNullOrEmpty(Topic) || string.IsNullOrEmpty(message) || string.IsNullOrEmpty(ClientId))
                 return Json(new { status = StatusCode.FAIL, message = "发布失败" }, JsonRequestBehavior.AllowGet);
             else
             {
                 try
                 {
-                    var res = new MqttClientService(Topic,ClientId);
+                    var res = new MqttClientService(Topic, ClientId);
                     res.Client_MqttMsgPublish(Topic, message);
                     return Json(new { status = StatusCode.SUCCESS, message = "发布成功" }, JsonRequestBehavior.AllowGet);
                 }
@@ -77,7 +77,7 @@ namespace WeChat.Controllers
             {
                 return Json(new { data = "", message = "数据异常" }, JsonRequestBehavior.AllowGet);
             }
-            string sql = _config.GetSceneMAC + Id + _config.aP;
+            string sql = _config.GetSceneMAC + Id + _config.AP;
             var a = dbhelper.ExecuteScalar(sql);
             return Json(new { data = a, message = "数据正常" }, JsonRequestBehavior.AllowGet);
         }
@@ -92,7 +92,7 @@ namespace WeChat.Controllers
             {
                 return Json(new { data = "", message = "数据异常" }, JsonRequestBehavior.AllowGet);
             }
-            string sql = _config.GetEleBoxMAC + Id + _config.aP;
+            string sql = _config.GetEleBoxMAC + Id + _config.AP;
             var a = dbhelper.ExecuteScalar(sql);
             return Json(new { data = a, message = "数据正常" }, JsonRequestBehavior.AllowGet);
         }
@@ -108,7 +108,7 @@ namespace WeChat.Controllers
             {
                 return Json(new { data = "", message = "数据异常" }, JsonRequestBehavior.AllowGet);
             }
-            string sql = _config.GetControlPanelMAC + Id + _config.aP;
+            string sql = _config.GetControlPanelMAC + Id + _config.AP;
             var a = dbhelper.ExecuteScalar(sql);
             return Json(new { data = a, message = "数据正常" }, JsonRequestBehavior.AllowGet);
         }

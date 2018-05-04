@@ -4,7 +4,7 @@
         createImage();
     });
 });
-        //生成二维码
+//生成二维码
 function createImage() {
     var content = $('#page7_jMemo1').text();
     var frist = content.substring(0, 1);

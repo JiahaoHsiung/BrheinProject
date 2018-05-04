@@ -248,7 +248,7 @@ namespace WeChat.Config
                 else KeyValues["GetHardWareMAC"].Value = value.ToString();
             }
         }
-        public string aP
+        public string AP
         {
             get
             {
