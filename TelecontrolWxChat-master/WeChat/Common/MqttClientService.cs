@@ -65,7 +65,7 @@ namespace WeChat.Common
             }
             catch (Exception e)
             {
-
+                new BrheinLog.Log.LogFactory().GetLog("MqttService").Error(true, e.Message);
                 throw;
             }
            /* finally{
@@ -82,6 +82,7 @@ namespace WeChat.Common
         {
             // 处理收到的消息
             System.Diagnostics.Debug.WriteLine(e.Message);
+            new BrheinLog.Log.LogFactory().GetLog("MqttService").Info(true, e.Message);
             //_config.ResultValue = e.Message.ToString();
             //ClientPublishReceivedAction.Invoke(sender, e);
 

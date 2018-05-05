@@ -14,11 +14,12 @@ namespace WeChat
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
             //注册 log4net
-            log4net.Config.XmlConfigurator.Configure(
-                new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory+ "/log4net.config")
-                );
-            GlobalConfiguration.Configuration.Filters.Add(new Log.ApiTrackerFilter());
+            //log4net.Config.XmlConfigurator.Configure(
+            //    new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory+ "/log4net.config")
+             //   );
+           // GlobalConfiguration.Configuration.Filters.Add(new Log.ApiTrackerFilter());
         }
     }
 }

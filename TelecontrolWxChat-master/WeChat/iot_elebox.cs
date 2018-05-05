@@ -12,30 +12,28 @@
 namespace WeChat
 {
 
-using System;
+    using System;
     using System.Collections.Generic;
-    
-public partial class iot_elebox
-{
 
-    public int ID { get; set; }
+    public partial class iot_elebox
+    {
 
-    public int Position { get; set; }
+        public int ID { get; set; }
 
-    public int GateWayId { get; set; }
+        public int Position { get; set; }
 
-    public string Uid { get; set; }
+        public int GateWayId { get; set; }
 
-    public string Name { get; set; }
+        public string Uid { get; set; }
 
-    public Nullable<System.DateTime> CreateTime { get; set; }
+        public string Name { get; set; }
 
-    public Nullable<System.DateTime> EditTime { get; set; }
+        public Nullable<System.DateTime> CreateTime { get; set; }
 
+        public Nullable<System.DateTime> EditTime { get; set; }
 
-
-    public virtual iot_gateway iot_gateway { get; set; }
-
-}
+        public virtual iot_gateway iot_gateway { get; set; }
+        public string MAC { get; internal set; }
+    }
 
 }

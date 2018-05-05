@@ -15,6 +15,12 @@ namespace WeChat.Controllers
 
         public JsonResult GetORImage(string content)
         {
+            //new BrheinLog.Log.LogFactory().GetLog("BenXH").Debug(true, "Hello");
+            //new BrheinLog.Log.LogFactory().GetLog("BenXH").Debug(true, "World");
+            //new BrheinLog.Log.LogFactory().GetLog(" ").Error(true, "");
+            //日志BenXH的info信息
+            new BrheinLog.Log.LogFactory().GetLog("GetQRImage").Info(true, "接收到参数：" + content);
+             //new BrheinLog.Log.LogFactory().GetLog("BenXH").Info(true, "BenXH");
 
             var first = content.Substring(0, 1);
             var QRName = "";
@@ -34,6 +40,7 @@ namespace WeChat.Controllers
             QRName = QRName + content;
             string fileName = Server.MapPath("~") + "Img\\QRImage\\" + QRName + ".jpg";
             Bitmap bitmap = QRCodeHelper.QRCodeEncoderUtil(content);
+            new BrheinLog.Log.LogFactory().GetLog("GetQRImage").Info(true, "保存图片位置：" + fileName);
             bitmap.Save(fileName);//保存位图
             string imageUrl = "/Img/QRImage/" + QRName + ".jpg";//显示图片  
             return Json(new { QRName, QRType, imageUrl }, JsonRequestBehavior.AllowGet); //Content(imageUrl);
